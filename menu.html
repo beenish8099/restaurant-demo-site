@@ -1,0 +1,559 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+
+  <title>Menu — Culinary Haven</title>
+  <meta name="description" content="Explore our full menu with prices in PKR. Filter by category or search for your favorite dishes." />
+  <link rel="canonical" href="https://example.com/menu.html" />
+
+  <!-- Open Graph -->
+  <meta property="og:title" content="Menu — Culinary Haven" />
+  <meta property="og:description" content="Browse our full menu with pricing in PKR, filter by category, and find your next favorite dish." />
+  <meta property="og:type" content="website" />
+  <meta property="og:url" content="https://example.com/menu.html" />
+  <meta property="og:image" content="https://images.unsplash.com/photo-1517248135467-4c7edcad34c4?q=80&w=1600&auto=format&fit=crop" />
+
+  <!-- Twitter -->
+  <meta name="twitter:card" content="summary_large_image" />
+  <meta name="twitter:title" content="Menu — Culinary Haven" />
+  <meta name="twitter:description" content="Full menu with prices in PKR, search and filter options." />
+  <meta name="twitter:image" content="https://images.unsplash.com/photo-1517248135467-4c7edcad34c4?q=80&w=1600&auto=format&fit=crop" />
+
+  <!-- Favicon -->
+  <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'> <text y='0.9em' font-size='90'>🍽️</text> </svg>">
+
+  <!-- Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Epilogue:wght@400;600;700;900&family=Noto+Sans:wght@400;600;700;900&display=swap" rel="stylesheet">
+
+  <!-- Tailwind (CDN) -->
+  <script src="https://cdn.tailwindcss.com?plugins=forms,typography,container-queries"></script>
+  
+  <!-- Custom CSS -->
+  <style>
+    /* Reuse the same CSS variables and styles from the main site */
+    :root {
+      --brand: #dc2626;
+      --brand-dark: #b91c1c;
+      --brand-light: #fef2f2;
+      --text: #1e293b;
+      --text-light: #64748b;
+      --accent: #f59e0b;
+      --accent-dark: #d97706;
+      --success: #10b981;
+      --background: #f8fafc;
+      --surface: #ffffff;
+      --border: #e2e8f0;
+      --shadow-sm: 0 1px 2px 0 rgba(0, 0, 0, 0.05);
+      --shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -1px rgba(0, 0, 0, 0.06);
+      --shadow-lg: 0 10px 15px -3px rgba(0, 0, 0, 0.1), 0 4px 6px -2px rgba(0, 0, 0, 0.05);
+      --shadow-xl: 0 20px 25px -5px rgba(0, 0, 0, 0.1), 0 10px 10px -5px rgba(0, 0, 0, 0.04);
+      --transition: all 0.3s ease;
+      --transition-slow: all 0.5s ease;
+      --transition-bounce: all 0.6s cubic-bezier(0.34, 1.56, 0.64, 1);
+      --radius: 0.75rem;
+      --radius-lg: 1rem;
+      --radius-xl: 1.5rem;
+    }
+
+    .nav-link { 
+      position: relative;
+      color: var(--text);
+      font-size: 0.95rem;
+      font-weight: 600;
+      transition: var(--transition);
+      padding: 0.5rem 0;
+    }
+
+    .nav-link:hover {
+      color: var(--brand);
+    }
+
+    .nav-link::after {
+      content: '';
+      position: absolute;
+      bottom: 0;
+      left: 0;
+      width: 0;
+      height: 2px;
+      background: var(--brand);
+      transition: var(--transition);
+    }
+
+    .nav-link:hover::after {
+      width: 100%;
+    }
+
+    .section-title { 
+      font-size: 2.5rem;
+      font-weight: 800;
+      letter-spacing: -0.025em;
+      line-height: 1.2;
+      background: linear-gradient(to right, var(--text), var(--brand));
+      -webkit-background-clip: text;
+      background-clip: text;
+      color: transparent;
+      margin-bottom: 1rem;
+    }
+
+    @media (min-width: 768px) {
+      .section-title {
+        font-size: 3rem;
+      }
+    }
+
+    .btn-primary {
+      position: relative;
+      padding: 1rem 2rem;
+      font-weight: 700;
+      border-radius: var(--radius);
+      transition: var(--transition-bounce);
+      overflow: hidden;
+      z-index: 1;
+      transform: translateY(0);
+      box-shadow: var(--shadow);
+      background: var(--brand);
+      color: white;
+    }
+
+    .btn-primary::before {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: -100%;
+      width: 100%;
+      height: 100%;
+      background: var(--brand-dark);
+      transition: var(--transition-slow);
+      z-index: -1;
+    }
+
+    .btn-primary:hover::before {
+      left: 0;
+    }
+
+    .btn-primary:hover {
+      transform: translateY(-3px);
+      box-shadow: var(--shadow-lg);
+    }
+
+    .menu-card { 
+      overflow: hidden;
+      border-radius: var(--radius-xl);
+      border: 1px solid var(--border);
+      background: var(--surface);
+      box-shadow: var(--shadow-sm);
+      transition: var(--transition-bounce);
+      transform: translateY(0);
+    }
+
+    .menu-card:hover {
+      transform: translateY(-8px);
+      box-shadow: var(--shadow-xl);
+    }
+
+    .menu-card-img { 
+      height: 16rem;
+      width: 100%;
+      object-fit: cover;
+      transition: var(--transition-slow);
+    }
+
+    .menu-card:hover .menu-card-img {
+      transform: scale(1.05);
+    }
+
+    .footer-link { 
+      color: #cbd5e1;
+      font-size: 0.875rem;
+      transition: var(--transition);
+      position: relative;
+      padding: 0.25rem 0;
+    }
+
+    .footer-link:hover {
+      color: white;
+    }
+
+    .footer-link::after {
+      content: '';
+      position: absolute;
+      bottom: 0;
+      left: 0;
+      width: 0;
+      height: 1px;
+      background: white;
+      transition: var(--transition);
+    }
+
+    .footer-link:hover::after {
+      width: 100%;
+    }
+
+    /* Menu-specific styles */
+    .menu-page-header {
+      background: linear-gradient(rgba(0,0,0,0.7), rgba(0,0,0,0.7)), url('https://images.unsplash.com/photo-1517248135467-4c7edcad34c4?q=80&w=1900&auto=format&fit=crop');
+      background-size: cover;
+      background-position: center;
+      padding: 8rem 0 4rem;
+      text-align: center;
+      color: white;
+    }
+
+    .menu-page-header h1 {
+      font-size: 3.5rem;
+      font-weight: 800;
+      margin-bottom: 1rem;
+    }
+
+    .menu-page-header p {
+      font-size: 1.25rem;
+      max-width: 600px;
+      margin: 0 auto;
+    }
+
+    .menu-filter-btn {
+      padding: 0.5rem 1.5rem;
+      border-radius: var(--radius);
+      font-weight: 600;
+      transition: var(--transition);
+      border: 1px solid var(--border);
+      background: white;
+    }
+
+    .menu-filter-btn:hover, .menu-filter-btn.active {
+      background: var(--brand);
+      color: white;
+      border-color: var(--brand);
+    }
+
+    #menuSearch {
+      padding: 0.75rem 1rem;
+      border-radius: var(--radius);
+      border: 1px solid var(--border);
+      width: 100%;
+      transition: var(--transition);
+    }
+
+    #menuSearch:focus {
+      outline: none;
+      border-color: var(--brand);
+      box-shadow: 0 0 0 3px rgba(220, 38, 38, 0.1);
+    }
+
+    .price-tag {
+      color: var(--brand);
+      font-weight: 700;
+      font-size: 1.1rem;
+    }
+
+    @media (max-width: 768px) {
+      .menu-page-header {
+        padding: 6rem 0 3rem;
+      }
+      
+      .menu-page-header h1 {
+        font-size: 2.5rem;
+      }
+      
+      .section-title {
+        font-size: 2rem;
+      }
+    }
+  </style>
+</head>
+
+<body class="bg-white text-slate-900 selection:bg-red-600/20 selection:text-red-900" style='font-family: Epilogue, "Noto Sans", system-ui, -apple-system, Segoe UI, Roboto, Ubuntu, Cantarell, "Helvetica Neue", Arial, "Apple Color Emoji", "Segoe UI Emoji";'>
+
+<!-- Header -->
+<header class="sticky top-0 z-50 w-full bg-white/90 backdrop-blur border-b border-slate-100" role="banner">
+  <div class="container mx-auto flex items-center justify-between px-4 md:px-8 py-3">
+    <a href="index.html" class="inline-flex items-center gap-2 group" aria-label="Culinary Haven home">
+      <svg class="h-9 w-9 text-red-600 group-hover:animate-wiggle" viewBox="0 0 48 48" fill="currentColor" aria-hidden="true">
+        <path d="M42.44 44s-6.36-10.1-1.27-20C46.86 12.93 42.21 4 42.21 4H7.01S11.66 12.93 5.97 23.99C0.88 33.9 7.27 44 7.27 44h35.17Z"/>
+      </svg>
+      <span class="font-extrabold tracking-tight text-xl md:text-2xl">Culinary Haven</span>
+    </a>
+
+    <button id="navToggle" class="md:hidden inline-flex items-center justify-center rounded-xl border border-slate-200 px-3 py-2 text-sm font-semibold hover:bg-slate-50" aria-expanded="false" aria-controls="primaryNav">
+      Menu
+    </button>
+
+    <nav id="primaryNav" class="hidden md:flex items-center gap-6" aria-label="Primary">
+      <a href="index.html" class="nav-link">Home</a>
+      <a href="index.html#about" class="nav-link">About</a>
+      <a href="index.html#contact" class="inline-flex items-center rounded-lg bg-red-600 px-4 py-2 text-white font-bold shadow hover:bg-red-700 focus:outline-none focus:ring-2 focus:ring-red-600 focus:ring-offset-2">Contact</a>
+    </nav>
+  </div>
+</header>
+
+<main id="main">
+  <!-- Menu Header -->
+  <section class="menu-page-header">
+    <div class="container mx-auto px-4 md:px-8">
+      <h1>Our Menu</h1>
+      <p>Discover our delicious dishes made with the freshest ingredients.</p>
+    </div>
+  </section>
+
+  <!-- Menu Filter & Search -->
+  <section class="py-8 bg-gray-50">
+    <div class="container mx-auto px-4 md:px-8">
+      <div class="flex flex-col md:flex-row gap-4 items-center">
+        <div class="w-full md:w-1/3">
+          <input type="text" id="menuSearch" placeholder="Search for dishes..." aria-label="Search menu items">
+        </div>
+        <div class="w-full flex flex-wrap gap-2 justify-center">
+          <button class="menu-filter-btn active" data-filter="all">All</button>
+          <button class="menu-filter-btn" data-filter="starters">Starters</button>
+          <button class="menu-filter-btn" data-filter="mains">Main Courses</button>
+          <button class="menu-filter-btn" data-filter="breads">Breads</button>
+          <button class="menu-filter-btn" data-filter="desserts">Desserts</button>
+          <button class="menu-filter-btn" data-filter="drinks">Drinks</button>
+        </div>
+      </div>
+      
+    </div>
+  </section>
+
+  <!-- Menu Items -->
+  <section class="py-16">
+    <div class="container mx-auto px-4 md:px-8">
+      <div id="menuGrid" class="grid sm:grid-cols-2 lg:grid-cols-3 gap-6">
+        <!-- Menu items will be dynamically inserted here -->
+      </div>
+      
+      <div id="noResults" class="hidden text-center py-12">
+        <h3 class="text-2xl font-bold text-gray-600">No items found</h3>
+        <p class="mt-2 text-gray-500">Try adjusting your search or filter criteria</p>
+      </div>
+    </div>
+  </section>
+</main>
+
+<footer class="bg-slate-900 text-white">
+  <div class="container mx-auto py-8 px-4 md:px-8 grid md:grid-cols-3 gap-6 items-center">
+    <p class="text-sm text-gray-400 md:col-span-2">© <span id="year"></span> Culinary Haven. All rights reserved.</p>
+    <nav class="flex gap-4 justify-center md:justify-end">
+      <a href="#faq" class="footer-link">FAQ</a>
+    </nav>
+  </div>
+</footer>
+
+<script>
+  // Menu data with prices in PKR
+  const MENU_ITEMS = [
+  { 
+    id: 1, 
+    name: "Chicken Biryani", 
+    price: 450, 
+    category: "mains", 
+    desc: "Fragrant basmati rice with tender chicken, saffron, and traditional spices.",
+    image: "https://images.unsplash.com/photo-1589302168068-964664d93dc0?w=800&auto=format&fit=crop&q=60&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxzZWFyY2h8NXx8YmlyeWFuaXxlbnwwfHwwfHx8MA%3D%3D"
+  },
+  { 
+    id: 2, 
+    name: "Beef Nihari", 
+    price: 550, 
+    category: "mains", 
+    desc: "Slow-cooked beef shank in a rich, spicy gravy, served with naan.",
+    image: "https://plus.unsplash.com/premium_photo-1723708871094-2c02cf5f5394?w=800&auto=format&fit=crop&q=60&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxzZWFyY2h8MTB8fHRyYWRpdGlvbmFsJTIwbWVhdCUyMGN1cnJ5fGVufDB8fDB8fHww"
+  },
+  { 
+    id: 3, 
+    name: "Chicken Karahi", 
+    price: 650, 
+    category: "mains", 
+    desc: "Spicy wok-cooked chicken with tomatoes, ginger, and green chilies.",
+    image: "https://images.unsplash.com/photo-1565557623262-b51c2513a641?w=800&auto=format&fit=crop&q=60"
+  },
+  { 
+    id: 4, 
+    name: "Seekh Kebab", 
+    price: 320, 
+    category: "starters", 
+    desc: "Minced meat kebabs seasoned with herbs and spices, grilled to perfection.",
+    image: "https://images.unsplash.com/photo-1677903784547-963c38f74bfc?w=800&auto=format&fit=crop&q=60&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxzZWFyY2h8OHx8a2FiYWIlMjBiYXIlMjBiJTIwcXxlbnwwfHwwfHx8MA%3D%3D"
+  },
+  { 
+    id: 5, 
+    name: "Chapli Kebab", 
+    price: 350, 
+    category: "starters", 
+    desc: "Spiced minced beef patties, a Peshawari specialty.",
+    image: "https://images.unsplash.com/photo-1707592357743-5e25b277ca36?w=800&auto=format&fit=crop&q=60&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxzZWFyY2h8MTJ8fGthYmFifGVufDB8fDB8fHww"
+  },
+  { 
+    id: 6, 
+    name: "Chana Chaat", 
+    price: 220, 
+    category: "starters", 
+    desc: "Tangy chickpeas with onions, tomatoes, and tamarind chutney.",
+    image: "https://images.unsplash.com/photo-1653850280260-aa3b9e00b230?w=800&auto=format&fit=crop&q=60&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxzZWFyY2h8M3x8Y2hhYXR8ZW58MHx8MHx8fDA%3D"
+  },
+  { 
+    id: 8, 
+    name: "Mutton Pulao", 
+    price: 500, 
+    category: "mains", 
+    desc: "Fragrant rice cooked with tender mutton and whole spices.",
+    image: "https://images.unsplash.com/photo-1747628857854-1c2c1395638c?w=800&auto=format&fit=crop&q=60&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxzZWFyY2h8NjJ8fHJpY2UlMjBwYWtpc3Rhbml8ZW58MHx8MHx8fDA%3D"
+  },
+  { 
+    id: 12, 
+    name: "Tandoori Roti", 
+    price: 40, 
+    category: "breads", 
+    desc: "Traditional whole wheat bread baked in clay oven.",
+    image: "https://plus.unsplash.com/premium_photo-1675382377431-d0e28a0e87da?w=800&auto=format&fit=crop&q=60&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxzZWFyY2h8Mzd8fHBha2lzdGFuaSUyMGJyZWFkfGVufDB8fDB8fHww"
+  },
+  { 
+    id: 13, 
+    name: "Garlic Naan", 
+    price: 80, 
+    category: "breads", 
+    desc: "Leavened bread with garlic and cilantro topping.",
+    image: "https://images.unsplash.com/photo-1754394483922-4d3a10cc6187?w=800&auto=format&fit=crop&q=60&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxzZWFyY2h8OXx8cGFraXN0YW5pJTIwYnJlYWR8ZW58MHx8MHx8fDA%3D"
+  },
+  { 
+    id: 14, 
+    name: "Lassi", 
+    price: 150, 
+    category: "drinks", 
+    desc: "Traditional yogurt-based drink, sweet or salty.",
+    image: "https://images.unsplash.com/photo-1692620609860-be6717812f71?w=800&auto=format&fit=crop&q=60&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxzZWFyY2h8M3x8bGFzc2l8ZW58MHx8MHx8fDA%3D"
+  },
+  { 
+    id: 15, 
+    name: "Gulab Jamun", 
+    price: 180, 
+    category: "desserts", 
+    desc: "Sweet milk dumplings soaked in rose-flavored syrup.",
+    image: "https://images.unsplash.com/photo-1666190092159-3171cf0fbb12?w=800&auto=format&fit=crop&q=60&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxzZWFyY2h8M3x8Z3VsYWIlMjBqYW11bnxlbnwwfHwwfHx8MA%3D%3D"
+  },
+  { 
+    id: 16, 
+    name: "Chocolate Cake", 
+    price: 160, 
+    category: "desserts", 
+    desc: "Rich chocolate cake with ganache filling and choclate toping.",
+    image: "https://media.istockphoto.com/id/869598944/photo/delicious-chocolate-layer-cake.webp?a=1&b=1&s=612x612&w=0&k=20&c=KsYewEoT4zhq-FaKotpCFExTcy4PkBBpslxLBoM3rg4="
+  },
+  { 
+    id: 17, 
+    name: "Chai", 
+    price: 100, 
+    category: "drinks", 
+    desc: "Traditional Pakistani tea with milk and tea leaves.",
+    image: "https://images.unsplash.com/photo-1609670438772-9cf3afc5052b?w=800&auto=format&fit=crop&q=60&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxzZWFyY2h8MTJ8fGluZGlhbiUyMHRlYXxlbnwwfHwwfHx8MA%3D%3D"
+  },
+  { 
+    id: 19, 
+    name: "Fish Tikka", 
+    price: 480, 
+    category: "mains", 
+    desc: "Marinated fish grilled with spices and herbs.",
+    image: "https://images.unsplash.com/photo-1577194509876-4bb24787a641?w=800&auto=format&fit=crop&q=60&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxzZWFyY2h8MzR8fGdyaWxsJTIwZmlzaHxlbnwwfHwwfHx8MA%3D%3D"
+  },
+  { 
+    id: 20, 
+    name: "Haleem", 
+    price: 380, 
+    category: "mains", 
+    desc: "Slow-cooked wheat, barley and meat porridge with spices.",
+    image: "https://images.unsplash.com/photo-1736680056361-6a2f6e35fa50?w=800&auto=format&fit=crop&q=60&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxzZWFyY2h8OTl8fHJpY2UlMjBwYWtpc3Rhbml8ZW58MHx8MHx8fDA%3D"
+  }
+];
+  // DOM elements
+  const menuGrid = document.getElementById('menuGrid');
+  const menuSearch = document.getElementById('menuSearch');
+  const filterButtons = document.querySelectorAll('.menu-filter-btn');
+  const noResults = document.getElementById('noResults');
+
+  // Format currency in PKR
+  function formatPrice(price) {
+    return `PKR ${price.toLocaleString()}`;
+  }
+
+  // Render menu items
+  function renderMenu(items) {
+    menuGrid.innerHTML = '';
+    
+    if (items.length === 0) {
+      noResults.classList.remove('hidden');
+      return;
+    }
+    
+    noResults.classList.add('hidden');
+    
+    items.forEach(item => {
+      const card = document.createElement('article');
+      card.className = 'menu-card';
+      card.dataset.category = item.category;
+      card.innerHTML = `
+        <img loading="lazy" src="${item.image}" alt="${item.name}" class="menu-card-img">
+        <div class="p-5">
+          <div class="flex items-start justify-between gap-4">
+            <h3 class="font-bold text-lg">${item.name}</h3>
+            <p class="price-tag">${formatPrice(item.price)}</p>
+          </div>
+          <p class="mt-2 text-sm text-gray-600">${item.desc}</p>
+        </div>
+      `;
+      menuGrid.appendChild(card);
+    });
+  }
+
+  // Filter menu items
+  function filterMenu() {
+    const searchTerm = menuSearch.value.toLowerCase();
+    const activeFilter = document.querySelector('.menu-filter-btn.active').dataset.filter;
+    
+    const filteredItems = MENU_ITEMS.filter(item => {
+      const matchesSearch = item.name.toLowerCase().includes(searchTerm) || 
+                           item.desc.toLowerCase().includes(searchTerm);
+      const matchesCategory = activeFilter === 'all' || item.category === activeFilter;
+      return matchesSearch && matchesCategory;
+    });
+    
+    renderMenu(filteredItems);
+  }
+
+  // Initialize menu
+  document.addEventListener('DOMContentLoaded', () => {
+    // Set current year in footer
+    document.getElementById('year').textContent = new Date().getFullYear();
+    
+    // Mobile nav toggle
+    const navToggle = document.getElementById('navToggle');
+    const primaryNav = document.getElementById('primaryNav');
+    
+    if (navToggle && primaryNav) {
+      navToggle.addEventListener('click', () => {
+        const expanded = navToggle.getAttribute('aria-expanded') === 'true';
+        navToggle.setAttribute('aria-expanded', String(!expanded));
+        primaryNav.classList.toggle('hidden');
+      });
+    }
+    
+    // Initial render
+    renderMenu(MENU_ITEMS);
+    
+    // Event listeners
+    menuSearch.addEventListener('input', filterMenu);
+    
+    filterButtons.forEach(button => {
+      button.addEventListener('click', () => {
+        filterButtons.forEach(btn => btn.classList.remove('active'));
+        button.classList.add('active');
+        filterMenu();
+      });
+    });
+  });
+</script>
+</body>
+</html>

@@ -1,0 +1,301 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+
+  <title>Culinary Haven — Fine Dining Restaurant</title>
+  <meta name="description" content="Culinary Haven is a fine-dining restaurant serving seasonal dishes and comfort classics. Browse our menu with clear pricing, explore our story, and get in touch." />
+  <link rel="canonical" href="https://example.com/" />
+
+  <!-- Open Graph -->
+  <meta property="og:title" content="Culinary Haven — Fine Dining Restaurant" />
+  <meta property="og:description" content="Browse our full menu with pricing, explore our story, and contact us." />
+  <meta property="og:type" content="website" />
+  <meta property="og:url" content="https://example.com/" />
+  <meta property="og:image" content="https://images.unsplash.com/photo-1559339352-11d035aa65de?q=80&w=1600&auto=format&fit=crop" />
+
+  <!-- Twitter -->
+  <meta name="twitter:card" content="summary_large_image" />
+  <meta name="twitter:title" content="Culinary Haven — Fine Dining Restaurant" />
+  <meta name="twitter:description" content="Full menu with prices, chef's picks, and more." />
+  <meta name="twitter:image" content="https://images.unsplash.com/photo-1559339352-11d035aa65de?q=80&w=1600&auto=format&fit=crop" />
+
+  <!-- Favicon -->
+  <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'> <text y='0.9em' font-size='90'>🍽️</text> </svg>">
+
+  <!-- Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Epilogue:wght@400;600;700;900&family=Noto+Sans:wght@400;600;700;900&display=swap" rel="stylesheet">
+
+  <!-- Tailwind (CDN) -->
+  <script src="https://cdn.tailwindcss.com?plugins=forms,typography,container-queries"></script>
+  
+  <!-- Custom CSS -->
+  <link rel="stylesheet" href="styles.css" />
+
+  <!-- JSON-LD Structured Data: Restaurant -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "Restaurant",
+    "name": "Culinary Haven",
+    "image": "https://images.unsplash.com/photo-1559339352-11d035aa65de?q=80&w=1600&auto=format&fit=crop",
+    "servesCuisine": ["International", "Seafood", "Italian"],
+    "priceRange": "$$",
+    "telephone": "+1-555-123-4567",
+    "address": {
+      "@type": "PostalAddress",
+      "streetAddress": "123 Market Street",
+      "addressLocality": "Karachi",
+      "addressRegion": "Sindh",
+      "postalCode": "75500",
+      "addressCountry": "PK"
+    },
+    "url": "https://example.com/",
+    "menu": "https://example.com/menu.html"
+  }
+  </script>
+</head>
+
+<body class="bg-white text-slate-900 selection:bg-red-600/20 selection:text-red-900" style='font-family: Epilogue, "Noto Sans", system-ui, -apple-system, Segoe UI, Roboto, Ubuntu, Cantarell, "Helvetica Neue", Arial, "Apple Color Emoji", "Segoe UI Emoji";'>
+<a class="skip-link" href="#main">Skip to content</a>
+
+<!-- Header -->
+<header class="sticky top-0 z-50 w-full bg-white/90 backdrop-blur border-b border-slate-100" role="banner">
+  <div class="container mx-auto flex items-center justify-between px-4 md:px-8 py-3">
+    <a href="index.html" class="inline-flex items-center gap-2 group" aria-label="Culinary Haven home">
+      <svg class="h-9 w-9 text-red-600 group-hover:animate-wiggle" viewBox="0 0 48 48" fill="currentColor" aria-hidden="true">
+        <path d="M42.44 44s-6.36-10.1-1.27-20C46.86 12.93 42.21 4 42.21 4H7.01S11.66 12.93 5.97 23.99C0.88 33.9 7.27 44 7.27 44h35.17Z"/>
+      </svg>
+      <span class="font-extrabold tracking-tight text-xl md:text-2xl">Culinary Haven</span>
+    </a>
+
+    <button id="navToggle" class="md:hidden inline-flex items-center justify-center rounded-xl border border-slate-200 px-3 py-2 text-sm font-semibold hover:bg-slate-50" aria-expanded="false" aria-controls="primaryNav">
+      Menu
+    </button>
+
+    <nav id="primaryNav" class="hidden md:flex items-center gap-6" aria-label="Primary">
+      <a href="menu.html" class="nav-link">Menu</a>
+      <a href="index.html#about" class="nav-link">About</a>
+      <a href="index.html#contact" class="inline-flex items-center rounded-lg bg-red-600 px-4 py-2 text-white font-bold shadow hover:bg-red-700 focus:outline-none focus:ring-2 focus:ring-red-600 focus:ring-offset-2">Contact</a>
+    </nav>
+  </div>
+</header>
+
+<main id="main">
+  <!-- Hero -->
+  <section id="home" class="relative">
+    <div class="relative min-h-[70vh] md:min-h-[80vh] grid place-items-center overflow-hidden">
+      <img src="https://images.unsplash.com/photo-1517248135467-4c7edcad34c4?q=80&w=1900&auto=format&fit=crop" alt="Warm restaurant interior with guests dining" class="absolute inset-0 h-full w-full object-cover brightness-[.6]" loading="eager" fetchpriority="high">
+      <div class="hero-overlay"></div>
+      <div class="relative z-10 container mx-auto px-4 md:px-8 text-center text-white">
+        <h1 class="text-4xl sm:text-5xl md:text-6xl font-black tracking-tight leading-tight">Exceptional Food, Memorable Moments</h1>
+        <p class="mt-4 text-lg md:text-xl text-gray-200 max-w-3xl mx-auto">Fresh ingredients, amazing flavors, and a warm atmosphere you'll love.</p>
+        <div class="mt-8 flex flex-wrap justify-center gap-3">
+          <a href="menu.html" class="btn-primary">View Full Menu</a>
+          <a href="#contact" class="btn-secondary">Contact Now</a>
+        </div>
+        <p class="mt-6 text-xs opacity-80">Open Monday to Friday 11am–10pm · Weekends 10am–11pm</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- Featured Dishes -->
+  <section id="specialties" class="py-16 md:py-20">
+    <div class="container mx-auto px-4 md:px-8">
+      <div class="text-center max-w-2xl mx-auto">
+        <h2 class="section-title">Our Specialties</h2>
+        <p class="mt-2 text-gray-600">Some of our most loved dishes, prepared with passion and expertise.</p>
+      </div>
+      <div class="mt-10 grid sm:grid-cols-2 lg:grid-cols-3 gap-6">
+        <!-- Card -->
+        <article class="menu-card animate-fadeIn delay-100">
+          <img loading="lazy" src="https://images.unsplash.com/photo-1561758033-d89a9ad46330?w=800&auto=format&fit=crop&q=60&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxzZWFyY2h8NXx8ZmFzdCUyMGZvb2R8ZW58MHx8MHx8fDA%3D" alt="Burger with Fries" class="menu-card-img">
+          <div class="p-5">
+            <h3 class="font-bold text-lg">Seekh Kebab</h3>
+            <p class="mt-2 text-sm text-gray-600">Minced meat kebabs seasoned with herbs and spices, grilled to perfection.</p>
+          </div>
+        </article>
+        <article class="menu-card animate-fadeIn delay-200">
+          <img loading="lazy" src="https://images.unsplash.com/photo-1589302168068-964664d93dc0?w=800&auto=format&fit=crop&q=60&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxzZWFyY2h8NXx8YmlyeWFuaXxlbnwwfHwwfHx8MA%3D%3D" alt="Biryani Picture" class="menu-card-img">
+          <div class="p-5">
+            <h3 class="font-bold text-lg">Chicken Biryani</h3>
+            <p class="mt-2 text-sm text-gray-600">Aromatic basmati rice with tender chicken, saffron, and traditional spices.</p>
+          </div>
+        </article>
+        <article class="menu-card animate-fadeIn delay-300">
+          <img loading="lazy" src="https://media.istockphoto.com/id/869598944/photo/delicious-chocolate-layer-cake.webp?a=1&b=1&s=612x612&w=0&k=20&c=KsYewEoT4zhq-FaKotpCFExTcy4PkBBpslxLBoM3rg4=" alt="Choclate cake slice" class="menu-card-img">
+          <div class="p-5">
+            <h3 class="font-bold text-lg">Chocolate Cake</h3>
+            <p class="mt-2 text-sm text-gray-600">Rich chocolate cake with ganache filling and choclate toping.</p>
+          </div>
+        </article>
+      </div>
+      
+      <div class="mt-12 text-center">
+         <a href="menu.html" class="inline-flex items-center rounded-lg bg-red-600 px-6 py-3 text-white font-bold text-lg shadow-lg hover:bg-red-700 transition-all focus:outline-none focus:ring-2 focus:ring-red-600 focus:ring-offset-2">
+          View Full Menu
+          <svg class="w-5 h-5 ml-2" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 8l4 4m0 0l-4 4m4-4H3"></path>
+          </svg>
+        </a>
+      </div>
+    </div>
+  </section>
+
+  <!-- Gallery -->
+  <section id="gallery" class="py-16 md:py-20">
+    <div class="container mx-auto px-4 md:px-8">
+      <div class="text-center max-w-2xl mx-auto">
+        <h2 class="section-title">Gallery</h2>
+        <p class="mt-2 text-gray-600">Take a look at our space and dishes.</p>
+      </div>
+      <div class="mt-10 grid grid-cols-2 md:grid-cols-3 gap-3">
+        <img class="gallery-img" loading="lazy" src="https://images.unsplash.com/photo-1559339352-11d035aa65de?q=80&w=1200&auto=format&fit=crop" alt="Beautiful table setting">
+        <img class="gallery-img" loading="lazy" src="https://images.unsplash.com/photo-1540189549336-e6e99c3679fe?q=80&w=1200&auto=format&fit=crop" alt="Chef preparing a dish">
+        <img class="gallery-img" loading="lazy" src="https://images.unsplash.com/photo-1624353365286-3f8d62daad51?w=800&auto=format&fit=crop&q=60&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxzZWFyY2h8N3x8ZGVzc2VydHN8ZW58MHx8MHx8fDA%3D" alt="Delicious dessert">
+        <img class="gallery-img" loading="lazy" src="https://images.unsplash.com/photo-1481833761820-0509d3217039?q=80&w=1200&auto=format&fit=crop" alt="Our bar with specialty drinks">
+        <img class="gallery-img" loading="lazy" src="https://images.unsplash.com/photo-1659881981676-33ab127152c0?w=800&auto=format&fit=crop&q=60&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxzZWFyY2h8MzB8fGNoaWNrZW4lMjBzdGVha3xlbnwwfHwwfHx8MA%3D%3D" alt="Perfectly cooked steak">
+        <img class="gallery-img" loading="lazy" src="https://images.unsplash.com/photo-1517248135467-4c7edcad34c4?q=80&w=1200&auto=format&fit=crop" alt="Comfortable dining area">
+      </div>
+    </div>
+  </section>
+
+  <!-- Testimonials -->
+  <section id="testimonials" class="py-16 md:py-20 bg-gray-50">
+    <div class="container mx-auto px-4 md:px-8">
+      <div class="text-center max-w-2xl mx-auto">
+        <h2 class="section-title">Guest Reviews</h2>
+        <p class="mt-2 text-gray-600">What our customers say about us.</p>
+      </div>
+      <div class="mt-10 grid md:grid-cols-3 gap-6">
+        <figure class="review-card animate-fadeIn delay-100">
+          <blockquote>“Amazing food and great service. The steak is incredible!”</blockquote>
+          <figcaption>— Aisha Kamran</figcaption>
+        </figure>
+        <figure class="review-card animate-fadeIn delay-200">
+          <blockquote>“Lovely atmosphere with fine dining quality.”</blockquote>
+          <figcaption>— Omar Rao</figcaption>
+        </figure>
+        <figure class="review-card animate-fadeIn delay-300">
+          <blockquote>“Great quality for the price. The desserts are unforgettable.”</blockquote>
+          <figcaption>— Fatima Kainat</figcaption>
+        </figure>
+      </div>
+    </div>
+  </section>
+
+  <!-- About -->
+  <section id="about" class="py-16 md:py-20">
+    <div class="container mx-auto px-4 md:px-8 grid md:grid-cols-2 gap-10 items-center">
+      <div>
+        <h2 class="section-title">Our Story</h2>
+        <p class="mt-4 text-gray-600">At Culinary Haven, we create special dining experiences using fresh local ingredients. Our chefs mix new ideas with familiar favorites to make dishes that are both exciting and comforting.</p>
+        <ul class="mt-6 space-y-2 text-gray-700 list-disc list-inside">
+          <li>Seasonal menus that change regularly</li>
+          <li>Vegetarian and gluten-free choices available</li>
+          <li>Private dining for special events</li>
+          <li>Fresh ingredients from local suppliers</li>
+        </ul>
+      </div>
+      <div class="relative rounded-2xl overflow-hidden shadow-xl">
+        <img loading="lazy" src="https://plus.unsplash.com/premium_photo-1661879046374-2f7298cd2ab8?w=800&auto=format&fit=crop&q=60&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxzZWFyY2h8MTE5fHxyZXN0YXVyYW50fGVufDB8fDB8fHww" class="w-full h-full object-cover" alt="Chef preparing fresh ingredients">
+      </div>
+    </div>
+  </section>
+
+  <!-- FAQ -->
+  <section id="faq" class="py-16 md:py-20 bg-gray-50">
+    <div class="container mx-auto px-4 md:px-8">
+      <div class="text-center max-w-2xl mx-auto">
+        <h2 class="section-title">Common Questions</h2>
+        <p class="mt-2 text-gray-600">Answers to questions we often receive.</p>
+      </div>
+      <div class="mt-8 max-w-3xl mx-auto divide-y divide-slate-200 rounded-2xl border border-slate-200 bg-white">
+        <details class="p-5 group">
+          <summary class="cursor-pointer font-semibold">Do you offer catering?</summary>
+          <p class="mt-2 text-gray-600">Yes, we provide catering services for events. Please contact us for more information.</p>
+        </details>
+        <details class="p-5 group">
+          <summary class="cursor-pointer font-semibold">What are your opening hours?</summary>
+          <p class="mt-2 text-gray-600">We're open Monday to Friday from 11am to 10pm, and weekends from 10am to 11pm.</p>
+        </details>
+        <details class="p-5 group">
+          <summary class="cursor-pointer font-semibold">Is parking available?</summary>
+          <p class="mt-2 text-gray-600">Yes, we have complimentary valet parking for our guests.</p>
+        </details>
+      </div>
+    </div>
+  </section>
+
+  <!-- Contact -->
+  <section id="contact" class="py-16 md:py-20">
+    <div class="container mx-auto px-4 md:px-8">
+      <div class="text-center max-w-2xl mx-auto">
+        <h2 class="section-title">Get In Touch</h2>
+        <p class="mt-2 text-gray-600">Have questions or want to make a reservation? Send us a message.</p>
+      </div>
+
+      <div class="mt-10 grid md:grid-cols-2 gap-8 items-start">
+        <!-- Fancy contact form -->
+        <form id="contactForm" class="glass-card p-6 rounded-2xl" novalidate>
+          <div class="grid grid-cols-1 gap-5">
+            <div>
+              <label for="name" class="form-label">Your Name</label>
+              <input id="name" name="name" type="text" class="form-input" placeholder="First and last name" required>
+              <p class="form-error" data-for="name"></p>
+            </div>
+            <div>
+              <label for="email" class="form-label">Email Address</label>
+              <input id="email" name="email" type="email" class="form-input" placeholder="you@example.com" required>
+              <p class="form-error" data-for="email"></p>
+            </div>
+            <div>
+              <label for="phone" class="form-label">Phone Number (optional)</label>
+              <input id="phone" name="phone" type="tel" class="form-input" placeholder="+92 3xx xxxxxxx">
+              <p class="form-error" data-for="phone"></p>
+            </div>
+            <div>
+              <label for="message" class="form-label">Your Message</label>
+              <textarea id="message" name="message" rows="4" class="form-input" placeholder="How can we help you?" required></textarea>
+              <p class="form-error" data-for="message"></p>
+            </div>
+            <button type="submit" class="btn-primary w-full">Send Message</button>
+            <p id="formStatus" class="text-sm text-center"></p>
+          </div>
+        </form>
+
+        <!-- Contact details / map -->
+        <aside class="space-y-6">
+          <div class="p-6 rounded-2xl border border-slate-200">
+            <h3 class="font-bold text-lg">Visit Our Restaurant</h3>
+            <p class="mt-1 text-gray-600">123 Market Street, Karachi, Sindh 75500</p>
+            <p class="mt-1 text-gray-600">Monday-Friday: 11am–10pm</p>
+            <p class="mt-1 text-gray-600">Saturday-Sunday: 10am–11pm</p>
+            <a href="tel:+15551234567" class="block mt-3 text-red-600 font-semibold">Call: (555) 123-4567</a>
+            <a href="mailto:info@culinaryhaven.com" class="block text-red-600 font-semibold">Email: info@culinaryhaven.com</a>
+          </div>
+          <div class="rounded-2xl overflow-hidden shadow-lg border border-slate-200">
+            <img src="https://images.unsplash.com/photo-1621255457330-7ef4e88ec27f?w=800&auto=format&fit=crop&q=60&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxzZWFyY2h8Mzd8fGNhbGx8ZW58MHx8MHx8fDA%3D" alt="Exterior of the restaurant" loading="lazy" class="w-full h-50 object-cover">
+          </div>
+        </aside>
+      </div>
+    </div>
+  </section>
+</main>
+
+<footer class="bg-slate-900 text-white">
+  <div class="container mx-auto py-8 px-4 md:px-8 grid md:grid-cols-3 gap-6 items-center">
+    <p class="text-sm text-gray-400 md:col-span-2">© <span id="year"></span> Culinary Haven. All rights reserved.</p>
+    <nav class="flex gap-4 justify-center md:justify-end">
+      <a href="#faq" class="footer-link">FAQ</a>
+    </nav>
+  </div>
+</footer>
+
+<script src="script.js" defer></script>
+</body>
+</html>
